@@ -4,8 +4,11 @@ import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const Review = () => {
   const [index, setIndex] = useState(0);
+
+  /* object destructuring  of the data */
   const { name, job, image, text } = people[index];
 
+  /* function for continues slides */
   const checkNumber = (number) => {
     if (number > people.length - 1) {
       return 0;
@@ -16,12 +19,16 @@ const Review = () => {
     return number;
   };
 
+  /* function for prev slider */
+
   const prevPerson = () => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
     });
   };
+
+  /* function function next slider */
   const nextPerson = () => {
     setIndex((index) => {
       let newIndex = index + 1;
@@ -29,6 +36,7 @@ const Review = () => {
     });
   };
 
+  /* function for random slider */
   const randomPerson = () => {
     let randomNumber = Math.floor(Math.random() * people.length);
     if (randomNumber === index) {
